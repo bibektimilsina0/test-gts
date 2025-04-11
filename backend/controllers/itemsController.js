@@ -1,11 +1,12 @@
-const items = require('../../data.json'); // Adjust path as needed
+const items = require('../data/package.json'); // fetch items from json file
 const fs = require('fs');
 const path = require('path');
 
+// GET : fetch all items
 const getItems = (req, res) => {
   res.json(items);
 };
-
+// POST : create packages based on selected items
 const makePackages = (req, res) => {
   const data = req.body;
 selectedItems=data.items;

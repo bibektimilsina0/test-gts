@@ -8,6 +8,7 @@ function App() {
 
   useEffect(() => {
     const fetchItems = async () => {
+      // Fetch items from the backend
       try {
         const res = await fetch('http://localhost:5000/items');
         if (!res.ok) {
@@ -22,6 +23,7 @@ function App() {
     };
     fetchItems();
   }, []);
+  //handling checkboxes for items packaging
   const handleCheck = (item) => {
     if (selectedItems.includes(item)) {
       setSelectedItems(selectedItems.filter((i) => i !== item));
@@ -29,6 +31,9 @@ function App() {
       setSelectedItems([...selectedItems, item]);
     }
   };
+  //handling submit button for creating packages
+  //sending selected items to backend
+  //and getting packages
   const handleSubmit = async () => {
     try {
       const res = await fetch('http://localhost:5000/items', {
